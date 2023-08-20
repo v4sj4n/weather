@@ -1,0 +1,47 @@
+nav {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & div {
+    display: flex;
+    gap: 0.5rem;
+    & img {
+      width: 2.75rem;
+    }
+    & h1 {
+      color: white;
+    }
+  }
+  ::placeholder {
+    color: white;
+  }
+
+  & input {
+    width: 22.5rem;
+    height: 3.75rem;
+    background-color: transparent;
+    border-radius: 0.625rem;
+    border: 2.5px solid #d9d9d9;
+    text-align: center;
+    font-size: 1.25rem;
+    color: white;
+  }
+
+  & h1 {
+    font-size: 2.25rem;
+    font-weight: 400;
+    & .temp-preference {
+      color: white !important;
+    }
+    & span:nth-child(even) {
+      color: white;
+      opacity: 50%;
+    }
+    & span:nth-child(odd) {
+      color: #656565;
+    }
+  }
+}

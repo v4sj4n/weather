@@ -1,0 +1,12 @@
+#extra-weather {
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
+  color: white;
+  & p {
+    font-weight: 700;
+  }
+  & span {
+    font-weight: 400;
+  }
+}

@@ -47,9 +47,15 @@ export default function Nav() {
   h1Temp.appendChild(spanSeperator)
   h1Temp.appendChild(spanF)
 
-  navContainer.appendChild(logoContainer)
-  navContainer.appendChild(inputSearch)
-  navContainer.appendChild(h1Temp)
+  if (window.innerWidth <= 800) {
+    navContainer.appendChild(logoContainer)
+    navContainer.appendChild(h1Temp)
+    navContainer.appendChild(inputSearch)
+  } else {
+    navContainer.appendChild(logoContainer)
+    navContainer.appendChild(inputSearch)
+    navContainer.appendChild(h1Temp)
+  }
 
   return navContainer
 }

@@ -11,8 +11,9 @@ nav {
     & img {
       width: 2.75rem;
     }
-    & h1 {
+    & > h1 {
       color: white;
+      font-weight: 700;
     }
   }
   ::placeholder {
@@ -42,6 +43,7 @@ nav {
     }
     & span:nth-child(odd) {
       color: #656565;
+      cursor: pointer;
     }
   }
 }

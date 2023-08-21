@@ -15,7 +15,7 @@ export default function Main(weatherInfo) {
     CurrentWeather({
       max: Math.round(Number(forecast.forecastday[0].day.maxtemp_c)),
       min: Math.round(Number(forecast.forecastday[0].day.mintemp_c)),
-      current: current.temp_c,
+      current: Math.round(Number(current.temp_c)),
       city: location.name,
       country: location.country,
       sunrise: forecast.forecastday[0].astro.sunrise,

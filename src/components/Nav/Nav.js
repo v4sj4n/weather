@@ -1,5 +1,7 @@
 import './Nav.css'
 import weatherLogoIcon from '../../images/icons/logoIcon.svg'
+import WeatherDataReceiver from '../../utils/WeatherDataReceiver'
+import Main from '../Main/Main'
 
 export default function Nav() {
   const navContainer = document.createElement('nav')
@@ -46,6 +48,16 @@ export default function Nav() {
   h1Temp.appendChild(spanC)
   h1Temp.appendChild(spanSeperator)
   h1Temp.appendChild(spanF)
+
+  inputSearch.addEventListener('keyup', function (event) {
+    event.preventDefault()
+    if (event.key === 'Enter') {
+      const body = document.body
+      body.removeChild(body.lastChild)
+      WeatherDataReceiver(Main, inputSearch.value)
+      inputSearch.value = ''
+    }
+  })
 
   if (window.innerWidth <= 800) {
     navContainer.appendChild(logoContainer)

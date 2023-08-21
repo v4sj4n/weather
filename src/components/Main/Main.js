@@ -1,6 +1,7 @@
 import './Main.css'
 import CurrentWeather from '../CurrentWeather/CurrentWeather'
 import WeatherExtra from '../WeatherExtra/WeatherExtra'
+import threeDaysWeather from '../threeDayWeather/threeDaysWeather'
 
 export default function Main() {
   const mainContainer = document.createElement('main')
@@ -24,6 +25,13 @@ export default function Main() {
       visibility: '10.0km',
       dewPoint: '22°C',
     })
+  )
+  mainContainer.appendChild(
+    threeDaysWeather([
+      { calDate: '20 Aug', minT: 22, maxT: 38 },
+      { calDate: '21 Aug', minT: 25, maxT: 40 },
+      { calDate: '22 Aug', minT: 26, maxT: 41 },
+    ])
   )
 
   return mainContainer

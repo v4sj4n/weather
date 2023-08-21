@@ -1,0 +1,10 @@
+#three-days-weather {
+  display: flex;
+  flex-direction: column;
+
+  & h1 {
+    color: white;
+    text-align: center;
+    font-size: 2.2rem;
+  }
+}

@@ -16,7 +16,7 @@ export default function WeatherExtra(extra) {
   const visibilityText = document.createElement('p')
   visibilityText.innerHTML = `visibility: <span>${extra.visibility}</span>`
   const dewPointText = document.createElement('p')
-  dewPointText.innerHTML = `dew point: <span>${extra.dewPointText}</span>`
+  dewPointText.innerHTML = `dew point: <span>${extra.dewPoint}</span>`
 
   weatherExtraFirstColumn.appendChild(windText)
   weatherExtraFirstColumn.appendChild(pressureText)

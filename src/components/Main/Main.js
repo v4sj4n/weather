@@ -2,35 +2,53 @@ import './Main.css'
 import CurrentWeather from '../CurrentWeather/CurrentWeather'
 import WeatherExtra from '../WeatherExtra/WeatherExtra'
 import threeDaysWeather from '../threeDayWeather/threeDaysWeather'
+import WeekDayDisplayer from '../../utils/WeekDayDisplayer'
 
-export default function Main() {
+export default function Main(weatherInfo) {
   const mainContainer = document.createElement('main')
+  const { current, forecast, location } = weatherInfo
+  console.log(current)
+  console.log(forecast)
+  console.log(location)
+  console.log(WeekDayDisplayer(forecast.forecastday[1].date))
   mainContainer.appendChild(
     CurrentWeather({
-      max: 34,
-      min: 22,
-      current: 33,
-      city: 'Tirana',
-      country: 'Albania',
-      sunrise: '05:54 AM',
-      sunset: '19:35 PM',
+      max: Math.round(Number(forecast.forecastday[0].day.maxtemp_c)),
+      min: Math.round(Number(forecast.forecastday[0].day.mintemp_c)),
+      current: current.temp_c,
+      city: location.name,
+      country: location.country,
+      sunrise: forecast.forecastday[0].astro.sunrise,
+      sunset: forecast.forecastday[0].astro.sunset,
     })
   )
   mainContainer.appendChild(
     WeatherExtra({
-      wind: '1.5m/s N',
-      pressure: '1012hPA',
-      humidity: '52%',
-      uv: 8,
-      visibility: '10.0km',
-      dewPoint: '22°C',
+      wind: `${current.wind_kph}km/h ${current.wind_dir}`,
+      pressure: `${current.pressure_mb}hPA`,
+      humidity: `${current.humidity}%`,
+      uv: current.uv,
+      visibility: `${forecast.forecastday[0].hour[18].vis_km}km`,
+      dewPoint: `${forecast.forecastday[0].hour[18].dewpoint_c}°C`,
     })
   )
   mainContainer.appendChild(
     threeDaysWeather([
-      { calDate: '20 Aug', minT: 22, maxT: 38 },
-      { calDate: '21 Aug', minT: 25, maxT: 40 },
-      { calDate: '22 Aug', minT: 26, maxT: 41 },
+      {
+        calDate: WeekDayDisplayer(forecast.forecastday[1].date),
+        minT: Math.round(Number(forecast.forecastday[1].day.mintemp_c)),
+        maxT: Math.round(Number(forecast.forecastday[1].day.maxtemp_c)),
+      },
+      {
+        calDate: WeekDayDisplayer(forecast.forecastday[2].date),
+        minT: Math.round(Number(forecast.forecastday[2].day.mintemp_c)),
+        maxT: Math.round(Number(forecast.forecastday[2].day.maxtemp_c)),
+      },
+      {
+        calDate: WeekDayDisplayer(forecast.forecastday[3].date),
+        minT: Math.round(Number(forecast.forecastday[3].day.mintemp_c)),
+        maxT: Math.round(Number(forecast.forecastday[3].day.maxtemp_c)),
+      },
     ])
   )
 

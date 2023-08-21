@@ -1,21 +1,29 @@
-const path = require("path")
+const path = require('path')
+const webpack = require('webpack')
+require('dotenv').config()
 
 module.exports = {
-  entry: "./src/index.js",
+  mode: 'production',
+  entry: './src/index.js',
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.WEATHER_API': JSON.stringify(process.env.WEATHER_API),
+    }),
+  ],
 }

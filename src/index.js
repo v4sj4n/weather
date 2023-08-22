@@ -6,5 +6,8 @@ import WeatherDataReceiver from './utils/WeatherDataReceiver'
 const body = document.body
 
 body.appendChild(Nav())
+if (!localStorage.getItem('currentCity')) {
+  localStorage.setItem('currentCity', 'Bathore')
+}
 
 WeatherDataReceiver(Main, localStorage.getItem('currentCity'))

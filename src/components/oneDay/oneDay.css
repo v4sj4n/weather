@@ -71,17 +71,19 @@
 @media (max-width: 450px) {
   .one-day-weather {
     flex-direction: column;
-    /* gap: 0.25rem; */
     align-items: center;
 
     & h2 {
-      font-size: 0.75rem;
+      font-size: 1rem;
 
       color: white;
     }
 
     & img {
-      width: 3rem;
+      width: 4rem;
+    }
+    & h2:first-child {
+      font-size: 1.1rem;
     }
   }
 }

@@ -41,7 +41,9 @@
     flex-direction: row;
     gap: 1rem;
     & p {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
+      margin-top: 0;
+      margin-bottom: 3px;
     }
     & p:first-child,
     p:last-child {

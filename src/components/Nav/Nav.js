@@ -2,6 +2,7 @@ import './Nav.css'
 import weatherLogoIcon from '../../images/icons/logoIcon.svg'
 import WeatherDataReceiver from '../../utils/WeatherDataReceiver'
 import Main from '../Main/Main'
+const body = document.body
 
 export default function Nav() {
   const navContainer = document.createElement('nav')
@@ -29,12 +30,17 @@ export default function Nav() {
 
   // H1 container
   const h1Temp = document.createElement('h1')
+  if (!localStorage.getItem('temperature')) {
+    localStorage.setItem('temperature', 'celsius')
+  }
 
   // Celsius Span
   const spanC = document.createElement('span')
   spanC.textContent = 'C '
   spanC.setAttribute('id', 'celsius')
-  spanC.setAttribute('class', 'temp-preference')
+  if (localStorage.getItem('temperature') === 'celsius') {
+    spanC.setAttribute('class', 'temp-preference')
+  }
 
   // Separator Span
   const spanSeperator = document.createElement('span')
@@ -44,6 +50,37 @@ export default function Nav() {
   const spanF = document.createElement('span')
   spanF.textContent = ' F'
   spanF.setAttribute('id', 'fahrenheit')
+  if (localStorage.getItem('temperature') === 'fahrenheit') {
+    spanF.setAttribute('class', 'temp-preference')
+  }
+
+  const preferredTClass = 'temp-preference'
+
+  // Celsius event listener
+  spanC.addEventListener('click', () => {
+    if (!spanC.classList.contains(preferredTClass)) {
+      spanF.classList.remove(preferredTClass)
+      spanC.classList.add(preferredTClass)
+
+      localStorage.setItem('temperature', 'celsius')
+      const main = document.querySelector('main')
+
+      body.removeChild(main)
+
+      WeatherDataReceiver(Main)
+    }
+  })
+  spanF.addEventListener('click', () => {
+    if (!spanF.classList.contains(preferredTClass)) {
+      spanC.classList.remove(preferredTClass)
+      spanF.classList.add(preferredTClass)
+      localStorage.setItem('temperature', 'fahrenheit')
+      const main = document.querySelector('main')
+      body.removeChild(main)
+
+      WeatherDataReceiver(Main)
+    }
+  })
 
   h1Temp.appendChild(spanC)
   h1Temp.appendChild(spanSeperator)
@@ -52,8 +89,10 @@ export default function Nav() {
   inputSearch.addEventListener('keyup', function (event) {
     event.preventDefault()
     if (event.key === 'Enter') {
-      const body = document.body
-      body.removeChild(body.lastChild)
+      const main = document.querySelector('main')
+
+      body.removeChild(main)
+      localStorage.setItem('currentCity', inputSearch.value)
       WeatherDataReceiver(Main, inputSearch.value)
       inputSearch.value = ''
     }

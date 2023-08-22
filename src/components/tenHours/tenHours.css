@@ -25,3 +25,14 @@
     font-size: 0.75rem;
   }
 }
+
+@media (max-width: 1200px) {
+  #ten-hours-container {
+    flex-basis: 100%;
+    padding-top: 2.5rem;
+
+    & h1 {
+      font-size: 2rem;
+    }
+  }
+}

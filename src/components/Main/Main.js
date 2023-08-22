@@ -9,11 +9,6 @@ import tenHoursReturner from '../../utils/tenHoursReturner'
 export default function Main(weatherInfo) {
   const mainContainer = document.createElement('main')
   const { current, forecast, location } = weatherInfo
-  // console.log(current)
-  // console.log(forecast)
-  // console.log(location)
-  // console.log(WeekDayDisplayer(forecast.forecastday[1].date))
-  console.log(tenHoursReturner(forecast.forecastday.slice(0, 2)))
 
   if (localStorage.getItem('temperature') === 'celsius') {
     mainContainer.appendChild(

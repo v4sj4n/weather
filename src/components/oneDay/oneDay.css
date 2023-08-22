@@ -17,3 +17,19 @@
     width: 3rem;
   }
 }
+
+@media (max-width: 1200px) {
+  .one-day-weather {
+    gap: 1.5rem;
+
+    & h2 {
+      font-size: 1rem;
+
+      color: white;
+    }
+
+    & img {
+      width: 3rem;
+    }
+  }
+}

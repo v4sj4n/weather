@@ -40,9 +40,7 @@ export default function tenHoursReturner(days, preferredWeather) {
         })
       })
     }
-    console.log(tenhs)
   }
-  console.log(tenHourForecast)
 
   return tenHourForecast
 }

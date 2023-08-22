@@ -10,3 +10,16 @@
     font-weight: 400;
   }
 }
+@media (max-width: 1200px) {
+  #extra-weather {
+    flex-direction: column;
+    gap: 0;
+    & p {
+      font-size: 0.8rem;
+    }
+    & p:first-child,
+    p:last-child {
+      margin-top: 0;
+    }
+  }
+}

@@ -99,9 +99,11 @@ export default function Nav() {
     }
   })
 
-  if (window.innerWidth <= 800) {
-    navContainer.appendChild(logoContainer)
-    navContainer.appendChild(h1Temp)
+  if (window.innerWidth <= 1200) {
+    const firstRowCont = document.createElement('div')
+    firstRowCont.appendChild(logoContainer)
+    firstRowCont.appendChild(h1Temp)
+    navContainer.appendChild(firstRowCont)
     navContainer.appendChild(inputSearch)
   } else {
     navContainer.appendChild(logoContainer)

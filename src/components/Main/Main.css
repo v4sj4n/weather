@@ -7,3 +7,14 @@ main {
   align-items: end;
   flex-wrap: wrap;
 }
+@media (max-width: 1200px) {
+  main {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+}

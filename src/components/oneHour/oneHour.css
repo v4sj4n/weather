@@ -1,7 +1,6 @@
 .one-hour-container {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   & img {
     width: 5rem;
@@ -20,5 +19,19 @@
   & h3,
   p {
     color: white;
+  }
+}
+
+@media (max-width: 1200px) {
+  .one-hour-container {
+    & img {
+      width: 3rem;
+    }
+    & h3 {
+      font-size: 2rem;
+    }
+    & p {
+      font-size: 1rem;
+    }
   }
 }

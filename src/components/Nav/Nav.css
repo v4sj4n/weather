@@ -47,3 +47,37 @@ nav {
     }
   }
 }
+
+@media (max-width: 1200px) {
+  nav {
+    flex-direction: column;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+  nav > div {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  nav > input {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  nav > div {
+    justify-content: space-between;
+    width: 100%;
+    & h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  nav > input {
+    width: 100%;
+  }
+}

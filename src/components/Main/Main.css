@@ -13,8 +13,12 @@ main {
     padding-right: 2.5rem;
   }
 }
-@media (max-width: 600px) {
-  nav {
+@media (max-width: 800px) {
+  main {
+    padding-left: 2rem;
+    padding-right: 2rem;
     flex-direction: column;
+    align-items: center;
+    gap: 2rem;
   }
 }

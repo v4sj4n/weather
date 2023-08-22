@@ -23,3 +23,29 @@
     }
   }
 }
+@media (max-width: 800px) {
+  #extra-weather {
+    flex-direction: row;
+    gap: 2rem;
+    & p {
+      font-size: 1rem;
+    }
+    & p:first-child,
+    p:last-child {
+      margin-top: 0;
+    }
+  }
+}
+@media (max-width: 400px) {
+  #extra-weather {
+    flex-direction: row;
+    gap: 1rem;
+    & p {
+      font-size: 0.75rem;
+    }
+    & p:first-child,
+    p:last-child {
+      margin-top: 0;
+    }
+  }
+}

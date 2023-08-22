@@ -16,3 +16,35 @@
     }
   }
 }
+@media (max-width: 800px) {
+  #three-days-weather {
+    flex-direction: row;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    & h1 {
+      font-size: 2rem;
+      flex-basis: 100%;
+    }
+  }
+}
+@media (max-width: 600px) {
+  #three-days-weather {
+    gap: 2rem;
+
+    & h1 {
+      font-size: 2rem;
+      flex-basis: 100%;
+    }
+  }
+}
+@media (max-width: 400px) {
+  #three-days-weather {
+    gap: 1.5rem;
+
+    & h1 {
+      font-size: 1.5rem;
+      flex-basis: 100%;
+    }
+  }
+}

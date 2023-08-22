@@ -10,6 +10,9 @@ export default function tenHours(tenhours) {
     "The time on each element is related to your local time not the place's you entered"
 
   const weatherStuff = document.createElement('div')
+  if (window.innerWidth <= 800) {
+    weatherStuff.setAttribute('class', 'scrollable')
+  }
   tenHoursContainer.setAttribute('id', 'ten-hours-container')
   tenhours.forEach((hour) => {
     weatherStuff.appendChild(oneHour(hour))

@@ -36,3 +36,22 @@
     }
   }
 }
+@media (max-width: 800px) {
+  #ten-hours-container {
+    flex-basis: 100%;
+    padding-top: 2.5rem;
+
+    & h1 {
+      font-size: 2rem;
+    }
+  }
+  div.scrollable {
+    width: 200px;
+    height: 150px;
+
+    gap: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    text-align: center;
+  }
+}

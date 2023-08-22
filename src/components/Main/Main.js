@@ -4,6 +4,7 @@ import WeatherExtra from '../WeatherExtra/WeatherExtra'
 import threeDays from '../threeDays/threeDays'
 import WeekDayDisplayer from '../../utils/WeekDayDisplayer'
 import tenHours from '../tenHours/tenHours'
+import tenHoursReturner from '../../utils/tenHoursReturner'
 
 export default function Main(weatherInfo) {
   const mainContainer = document.createElement('main')
@@ -12,6 +13,7 @@ export default function Main(weatherInfo) {
   // console.log(forecast)
   // console.log(location)
   // console.log(WeekDayDisplayer(forecast.forecastday[1].date))
+  console.log(tenHoursReturner(forecast.forecastday.slice(0, 2)))
 
   if (localStorage.getItem('temperature') === 'celsius') {
     mainContainer.appendChild(
@@ -55,18 +57,7 @@ export default function Main(weatherInfo) {
       ])
     )
     mainContainer.appendChild(
-      tenHours([
-        { temperature: 23, hour: '21:00' },
-        { temperature: 23, hour: '21:00' },
-        { temperature: 23, hour: '21:00' },
-        { temperature: 23, hour: '21:00' },
-        { temperature: 23, hour: '21:00' },
-        { temperature: 23, hour: '21:00' },
-        { temperature: 23, hour: '21:00' },
-        { temperature: 23, hour: '21:00' },
-        { temperature: 23, hour: '21:00' },
-        { temperature: 23, hour: '21:00' },
-      ])
+      tenHours(tenHoursReturner(forecast.forecastday.slice(0, 2), 'celsius'))
     )
   } else {
     mainContainer.appendChild(
@@ -91,7 +82,7 @@ export default function Main(weatherInfo) {
       })
     )
     mainContainer.appendChild(
-      threeDaysWeather([
+      threeDays([
         {
           calDate: WeekDayDisplayer(forecast.forecastday[1].date),
           minT: Math.round(Number(forecast.forecastday[1].day.mintemp_f)),
@@ -108,6 +99,9 @@ export default function Main(weatherInfo) {
           maxT: Math.round(Number(forecast.forecastday[3].day.maxtemp_f)),
         },
       ])
+    )
+    mainContainer.appendChild(
+      tenHours(tenHoursReturner(forecast.forecastday.slice(0, 2), 'fahrenheit'))
     )
   }
 

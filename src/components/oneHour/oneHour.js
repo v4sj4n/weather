@@ -8,9 +8,9 @@ export default function oneHour(hourInfo) {
   weatherIcon.src = sunnyIcon
 
   const tempH3 = document.createElement('h3')
-  tempH3.textContent = hourInfo.temperature
+  tempH3.textContent = `${hourInfo.temp}°`
   const hourP = document.createElement('p')
-  hourP.textContent = hourInfo.hour
+  hourP.textContent = hourInfo.time
 
   oneHourContainer.appendChild(weatherIcon)
   oneHourContainer.appendChild(tempH3)

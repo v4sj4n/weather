@@ -70,7 +70,6 @@
 }
 @media (max-width: 800px) {
   #current-weather {
-    width: 44.5%;
     & img {
       width: 5rem;
     }

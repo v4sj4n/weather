@@ -1,7 +1,7 @@
-import oneDayWeather from '../oneDayWeather/oneDayWeather'
-import './threeDaysWeather.css'
+import oneDay from '../oneDay/oneDay'
+import './threeDays.css'
 
-export default function threeDaysWeather(threeDaysWeather) {
+export default function threeDays(threeDaysWeather) {
   const threeDaysContainer = document.createElement('div')
   threeDaysContainer.setAttribute('id', 'three-days-weather')
 
@@ -10,7 +10,7 @@ export default function threeDaysWeather(threeDaysWeather) {
 
   threeDaysContainer.appendChild(threeDaysLabel)
   threeDaysWeather.forEach((day) => {
-    threeDaysContainer.appendChild(oneDayWeather(day))
+    threeDaysContainer.appendChild(oneDay(day))
   })
 
   return threeDaysContainer

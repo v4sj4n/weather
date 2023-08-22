@@ -1,7 +1,7 @@
 import sunnyIcon from '../../images/icons/weatherSunny.svg'
-import './oneDayWeather.css'
+import './oneDay.css'
 
-export default function oneDayWeather(day) {
+export default function oneDay(day) {
   const oneDayContainer = document.createElement('div')
   oneDayContainer.setAttribute('class', 'one-day-weather')
 

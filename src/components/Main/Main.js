@@ -1,16 +1,17 @@
 import './Main.css'
 import CurrentWeather from '../CurrentWeather/CurrentWeather'
 import WeatherExtra from '../WeatherExtra/WeatherExtra'
-import threeDaysWeather from '../threeDayWeather/threeDaysWeather'
+import threeDays from '../threeDays/threeDays'
 import WeekDayDisplayer from '../../utils/WeekDayDisplayer'
+import tenHours from '../tenHours/tenHours'
 
 export default function Main(weatherInfo) {
   const mainContainer = document.createElement('main')
   const { current, forecast, location } = weatherInfo
-  console.log(current)
-  console.log(forecast)
-  console.log(location)
-  console.log(WeekDayDisplayer(forecast.forecastday[1].date))
+  // console.log(current)
+  // console.log(forecast)
+  // console.log(location)
+  // console.log(WeekDayDisplayer(forecast.forecastday[1].date))
 
   if (localStorage.getItem('temperature') === 'celsius') {
     mainContainer.appendChild(
@@ -35,7 +36,7 @@ export default function Main(weatherInfo) {
       })
     )
     mainContainer.appendChild(
-      threeDaysWeather([
+      threeDays([
         {
           calDate: WeekDayDisplayer(forecast.forecastday[1].date),
           minT: Math.round(Number(forecast.forecastday[1].day.mintemp_c)),
@@ -51,6 +52,20 @@ export default function Main(weatherInfo) {
           minT: Math.round(Number(forecast.forecastday[3].day.mintemp_c)),
           maxT: Math.round(Number(forecast.forecastday[3].day.maxtemp_c)),
         },
+      ])
+    )
+    mainContainer.appendChild(
+      tenHours([
+        { temperature: 23, hour: '21:00' },
+        { temperature: 23, hour: '21:00' },
+        { temperature: 23, hour: '21:00' },
+        { temperature: 23, hour: '21:00' },
+        { temperature: 23, hour: '21:00' },
+        { temperature: 23, hour: '21:00' },
+        { temperature: 23, hour: '21:00' },
+        { temperature: 23, hour: '21:00' },
+        { temperature: 23, hour: '21:00' },
+        { temperature: 23, hour: '21:00' },
       ])
     )
   } else {

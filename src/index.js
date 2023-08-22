@@ -7,4 +7,4 @@ const body = document.body
 
 body.appendChild(Nav())
 
-WeatherDataReceiver(Main)
+WeatherDataReceiver(Main, localStorage.getItem('currentCity'))

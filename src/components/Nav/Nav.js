@@ -67,7 +67,7 @@ export default function Nav() {
 
       body.removeChild(main)
 
-      WeatherDataReceiver(Main)
+      WeatherDataReceiver(Main, localStorage.getItem('currentCity'))
     }
   })
   spanF.addEventListener('click', () => {
@@ -77,8 +77,7 @@ export default function Nav() {
       localStorage.setItem('temperature', 'fahrenheit')
       const main = document.querySelector('main')
       body.removeChild(main)
-
-      WeatherDataReceiver(Main)
+      WeatherDataReceiver(Main, localStorage.getItem('currentCity'))
     }
   })
 
@@ -91,7 +90,9 @@ export default function Nav() {
     if (event.key === 'Enter') {
       const main = document.querySelector('main')
 
-      body.removeChild(main)
+      if (main) {
+        body.removeChild(main)
+      }
       localStorage.setItem('currentCity', inputSearch.value)
       WeatherDataReceiver(Main, inputSearch.value)
       inputSearch.value = ''

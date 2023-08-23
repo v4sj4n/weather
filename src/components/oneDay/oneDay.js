@@ -1,4 +1,3 @@
-import sunnyIcon from '../../images/icons/weatherSunny.svg'
 import './oneDay.css'
 
 export default function oneDay(day) {
@@ -9,7 +8,7 @@ export default function oneDay(day) {
   dayText.textContent = `${day.calDate}`
 
   const weatherIcon = new Image()
-  weatherIcon.src = sunnyIcon
+  weatherIcon.src = day.iconSrc
 
   const minMaxText = document.createElement('h2')
   minMaxText.textContent = `${day.maxT}° / ${day.minT}°`

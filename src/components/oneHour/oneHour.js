@@ -1,11 +1,10 @@
-import sunnyIcon from '../../images/icons/weatherSunny.svg'
 import './oneHour.css'
 
 export default function oneHour(hourInfo) {
   const oneHourContainer = document.createElement('div')
   oneHourContainer.setAttribute('class', 'one-hour-container')
   const weatherIcon = new Image()
-  weatherIcon.src = sunnyIcon
+  weatherIcon.src = hourInfo.iconSrc
 
   const tempH3 = document.createElement('h3')
   tempH3.textContent = `${hourInfo.temp}°`

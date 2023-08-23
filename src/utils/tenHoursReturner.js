@@ -8,6 +8,7 @@ export default function tenHoursReturner(days, preferredWeather) {
     if (preferredWeather === 'celsius') {
       for (let index = hour; index < finalHour; index++) {
         tenHourForecast.push({
+          iconSrc: `http://${days[0].hour[index].condition.icon.slice(2)}`,
           temp: Math.round(Number(days[0].hour[index].temp_c)),
           time: days[0].hour[index].time.split(' ')[1],
         })
@@ -15,6 +16,8 @@ export default function tenHoursReturner(days, preferredWeather) {
     } else {
       for (let index = hour; index < finalHour; index++) {
         tenHourForecast.push({
+          iconSrc: `http://${days[0].hour[index].condition.icon.slice(2)}`,
+
           temp: Math.round(Number(days[0].hour[index].temp_f)),
           time: days[0].hour[index].time.split(' ')[1],
         })
@@ -28,6 +31,7 @@ export default function tenHoursReturner(days, preferredWeather) {
     if (preferredWeather === 'celsius') {
       tenhs.forEach((element) => {
         tenHourForecast.push({
+          iconSrc: `http://${element.condition.icon.slice(2)}`,
           temp: Math.round(Number(element.temp_c)),
           time: element.time.split(' ')[1],
         })
@@ -35,6 +39,7 @@ export default function tenHoursReturner(days, preferredWeather) {
     } else {
       tenhs.forEach((element) => {
         tenHourForecast.push({
+          iconSrc: `http://${element.condition.icon.slice(2)}`,
           temp: Math.round(Number(element.temp_f)),
           time: element.time.split(' ')[1],
         })

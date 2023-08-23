@@ -1,5 +1,4 @@
 import './CurrentWeather.css'
-import sunnyIcon from '../../images/icons/weatherSunny.svg'
 
 export default function CurrentWeather(city) {
   const currentWeatherContainer = document.createElement('div')
@@ -7,7 +6,7 @@ export default function CurrentWeather(city) {
 
   // Weather Icon
   const currentWeatherIcon = new Image()
-  currentWeatherIcon.src = sunnyIcon
+  currentWeatherIcon.src = city.iconSrc
 
   // Min/Max
   const pMinMax = document.createElement('p')

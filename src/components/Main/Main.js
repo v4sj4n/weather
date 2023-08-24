@@ -17,7 +17,7 @@ export default function Main(weatherInfo) {
         max: Math.round(Number(forecast.forecastday[0].day.maxtemp_c)),
         min: Math.round(Number(forecast.forecastday[0].day.mintemp_c)),
         current: Math.round(Number(current.temp_c)),
-        city: location.name,
+        city: location.name.replace(/\(\((.*)\)\)/, '$1'),
         country: location.country,
         sunrise: forecast.forecastday[0].astro.sunrise,
         sunset: forecast.forecastday[0].astro.sunset,
@@ -62,7 +62,9 @@ export default function Main(weatherInfo) {
       ])
     )
     mainContainer.appendChild(
-      tenHours(tenHoursReturner(forecast.forecastday.slice(0, 2), 'celsius'))
+      tenHours(
+        tenHoursReturner(forecast.forecastday.slice(0, 2), 'celsius', location)
+      )
     )
   } else {
     mainContainer.appendChild(
@@ -72,7 +74,7 @@ export default function Main(weatherInfo) {
         max: Math.round(Number(forecast.forecastday[0].day.maxtemp_f)),
         min: Math.round(Number(forecast.forecastday[0].day.mintemp_f)),
         current: Math.round(Number(current.temp_f)),
-        city: location.name,
+        city: location.name.replace(/\(\((.*)\)\)/, '$1'),
         country: location.country,
         sunrise: forecast.forecastday[0].astro.sunrise,
         sunset: forecast.forecastday[0].astro.sunset,
@@ -117,7 +119,13 @@ export default function Main(weatherInfo) {
       ])
     )
     mainContainer.appendChild(
-      tenHours(tenHoursReturner(forecast.forecastday.slice(0, 2), 'fahrenheit'))
+      tenHours(
+        tenHoursReturner(
+          forecast.forecastday.slice(0, 2),
+          'fahrenheit',
+          location
+        )
+      )
     )
   }
 

@@ -7,7 +7,7 @@ const body = document.body
 
 body.appendChild(Nav())
 if (!localStorage.getItem('currentCity')) {
-  localStorage.setItem('currentCity', 'Bathore')
+  localStorage.setItem('currentCity', 'Vasjan')
 }
 
 WeatherDataReceiver(Main, localStorage.getItem('currentCity'))

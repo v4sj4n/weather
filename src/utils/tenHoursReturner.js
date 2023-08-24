@@ -1,7 +1,7 @@
-export default function tenHoursReturner(days, preferredWeather) {
+export default function tenHoursReturner(days, preferredWeather, location) {
   const tenHourForecast = []
-  const currentTime = new Date()
-  const hour = currentTime.getHours()
+  const currentLocalTime = new Date(location.localtime)
+  const hour = currentLocalTime.getHours() + 1
   const needAnotherDay = 24 - hour >= 10 ? false : true
   const finalHour = hour + 10
   if (!needAnotherDay) {

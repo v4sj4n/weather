@@ -1,7 +1,7 @@
-export default async function WeatherDataReceiver(Component, city = 'rome') {
+export default async function WeatherDataReceiver(Component, city) {
   let data
   const weatheri = await fetch(
-    `https://api.weatherapi.com/v1/forecast.json?q=${city}&days=4&key=${process.env.WEATHER_API}`,
+    `https://api.weatherapi.com/v1/forecast.json?q=${city}&days=3&key=${process.env.WEATHER_API}`,
     {
       mode: 'cors',
     }

@@ -36,6 +36,14 @@ export default function Main(weatherInfo) {
     mainContainer.appendChild(
       threeDays([
         {
+          iconSrc: `http://${forecast.forecastday[0].day.condition.icon.slice(
+            2
+          )}`,
+          calDate: WeekDayDisplayer(forecast.forecastday[0].date),
+          minT: Math.round(Number(forecast.forecastday[0].day.mintemp_c)),
+          maxT: Math.round(Number(forecast.forecastday[0].day.maxtemp_c)),
+        },
+        {
           iconSrc: `http://${forecast.forecastday[1].day.condition.icon.slice(
             2
           )}`,
@@ -50,14 +58,6 @@ export default function Main(weatherInfo) {
           calDate: WeekDayDisplayer(forecast.forecastday[2].date),
           minT: Math.round(Number(forecast.forecastday[2].day.mintemp_c)),
           maxT: Math.round(Number(forecast.forecastday[2].day.maxtemp_c)),
-        },
-        {
-          iconSrc: `http://${forecast.forecastday[3].day.condition.icon.slice(
-            2
-          )}`,
-          calDate: WeekDayDisplayer(forecast.forecastday[3].date),
-          minT: Math.round(Number(forecast.forecastday[3].day.mintemp_c)),
-          maxT: Math.round(Number(forecast.forecastday[3].day.maxtemp_c)),
         },
       ])
     )
@@ -93,6 +93,14 @@ export default function Main(weatherInfo) {
     mainContainer.appendChild(
       threeDays([
         {
+          iconSrc: `http://${forecast.forecastday[0].day.condition.icon.slice(
+            2
+          )}`,
+          calDate: WeekDayDisplayer(forecast.forecastday[0].date),
+          minT: Math.round(Number(forecast.forecastday[0].day.mintemp_f)),
+          maxT: Math.round(Number(forecast.forecastday[0].day.maxtemp_f)),
+        },
+        {
           iconSrc: `http://${forecast.forecastday[1].day.condition.icon.slice(
             2
           )}`,
@@ -107,14 +115,6 @@ export default function Main(weatherInfo) {
           calDate: WeekDayDisplayer(forecast.forecastday[2].date),
           minT: Math.round(Number(forecast.forecastday[2].day.mintemp_f)),
           maxT: Math.round(Number(forecast.forecastday[2].day.maxtemp_f)),
-        },
-        {
-          iconSrc: `http://${forecast.forecastday[3].day.condition.icon.slice(
-            2
-          )}`,
-          calDate: WeekDayDisplayer(forecast.forecastday[3].date),
-          minT: Math.round(Number(forecast.forecastday[3].day.mintemp_f)),
-          maxT: Math.round(Number(forecast.forecastday[3].day.maxtemp_f)),
         },
       ])
     )
